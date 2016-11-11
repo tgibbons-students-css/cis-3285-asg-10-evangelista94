@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,7 +37,8 @@ namespace CurrencyTrader.Gui
             var tradeMapper = new SimpleTradeMapper();
             var tradeParser = new SimpleTradeParser(tradeValidator, tradeMapper);
 
-            var tradeStorage = new AdoNetTradeStorage(logger);
+            //var tradeStorage = new AdoNetTradeStorage(logger);
+            var tradeStorage = new AsynchTradeStorage(logger);
             tradeProcessor = new TradeProcessor(tradeDataProvider, tradeParser, tradeStorage);
         }
 
